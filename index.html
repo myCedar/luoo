@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app="luoApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/myLuo.css"/>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=9mrngpC5hi7R3NKe10kjLo04vVQq2vG0">
+    </script>
+    <title></title>
+</head>
+<body ng-controller="bodyCtrl">
+<!--头部内容-->
+<div id="header" ng-include="'snippets/header.html'"></div>
+
+<!--主体内容-->
+<div  ng-view="">
+
+</div>
+<!--尾部内容-->
+<div id="footer" ng-include="'snippets/footer.html'"></div>
+<!--登录注册模态框-->
+<div class="modal fade" id="login_reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <!--登录-->
+        <div  ng-show="login_reg" class="modal-content" id="modal_content_login">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-title" id="myModalLabel">
+                <h4 >登录</h4><span>没有账号? <a ng-click="loginAndReg()">注册</a></span></div>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" id="modal_form1">
+                    <div class="form-group">
+                        <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail1" placeholder="Email"  ng-model="user.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Password"  ng-model="user.pwd">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="login_reg_btn">
+                            <button ng-click="luooLogin()" type="submit" class="btn btn-danger btn-block">登录</button>
+                        </div>
+                        </div>
+                    <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">自动登录 <a href="">忘记密码</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <ul class="list-unstyled list-inline">
+                    <li><a href=""><span></span></a></li>
+                    <li><a href=""><span></span></a></li>
+                    <li><a href=""><span></span></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!--注册-->
+        <div class="modal-content" ng-hide="login_reg" id="modal_content_reg">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-title" id="myModalLabe2">
+                    <h4 >注册</h4><span><a ng-click="loginAndReg()" >返回登录</a></span></div>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" id="modal_form2">
+                    <div class="form-group">
+                        <label for="userName2" class="col-sm-2 control-label">userName</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="userName2" placeholder="userName" ng-model="reg.username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail2" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail2" placeholder="Email" ng-model="reg.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword2" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="Password" ng-model="reg.pwd">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="login_reg_btn">
+                            <button type="submit" class="btn btn-danger btn-block" ng-click="luooReg()">注册</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">同意落网 <a href="#">《落网协议》</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <ul class="list-unstyled list-inline">
+                    <li><a href=""><span></span></a></li>
+                    <li><a href=""><span></span></a></li>
+                    <li><a href=""><span></span></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="js/angular.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/luoo.js"></script>
+</body>
+</html>
